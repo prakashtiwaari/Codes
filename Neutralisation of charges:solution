@@ -1,0 +1,45 @@
+QUESTION LINK: https://www.hackerearth.com/practice/data-structures/arrays/1-d/practice-problems/algorithm/charges-repel/
+
+
+#include<iostream>
+#include<string>
+#include<stack>
+using namespace std;                  //aaacccbbcccd
+int main()
+{
+	  int n,count=0;
+    cin>>n;
+   string str;
+   string output;
+	cin>>str;
+	stack <char> mystack;
+		mystack.push(str.at(0));
+	
+	for(int i=1;i<str.length();i++)
+	{
+		
+		if(!mystack.empty()&& mystack.top()==str.at(i))
+		{
+			mystack.pop();
+		}
+		else
+		{
+			mystack.push(str.at(i));
+		}
+		
+	}
+	
+	stack<char> temp;
+	while(!mystack.empty())
+	{
+		temp.push(mystack.top());
+		     count++;
+		mystack.pop();
+	}
+	cout<<count<<endl;
+	 while (!temp.empty()) { 
+        cout<< temp.top();
+        temp.pop(); 
+    } 
+	return 0;
+}
